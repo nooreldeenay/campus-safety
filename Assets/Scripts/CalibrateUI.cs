@@ -18,7 +18,8 @@ public class CalibrateUI : MonoBehaviour
     [SerializeField] Button calibrateButton;
     [SerializeField] private GuidanceLine.GuidanceLine guidanceLine;
 
-    private List<NavigationTarget> _navigationTargets = new();
+    // private List<NavigationTarget> _navigationTargets = new();
+    private Transform _target;
     private GameObject _navigationBase;
 
     private NavMeshPath _navMeshPath;
@@ -34,10 +35,12 @@ public class CalibrateUI : MonoBehaviour
 
     private void Update()
     {
-        if (_navigationTargets.Count > 0)
+        // if (_navigationTargets.Count > 0)
+        if (_target != null)
         {
+            Debug.Log(_target.position);
             // _navMeshSurface.BuildNavMesh();
-            NavMesh.CalculatePath(player.position, _navigationTargets[0].transform.position, NavMesh.AllAreas,
+            NavMesh.CalculatePath(player.position, _target.position, NavMesh.AllAreas,
                 _navMeshPath);
 
             if (_navMeshPath.status == NavMeshPathStatus.PathComplete)
@@ -48,11 +51,10 @@ public class CalibrateUI : MonoBehaviour
                 {
                     waypoints[i].y += pathYOffset;
                 }
-                
-                
+
+
                 lineRenderer.positionCount = _navMeshPath.corners.Length;
                 lineRenderer.SetPositions(waypoints);
-
             }
             else
             {
@@ -69,8 +71,11 @@ public class CalibrateUI : MonoBehaviour
 
         // navigationBase.SetActive(true);
 
-        _navigationTargets.Clear();
-        _navigationTargets = new List<NavigationTarget>() { NavigationTarget.Instance };
+        // _navigationTargets.Clear();
+        // _navigationTargets = new List<NavigationTarget>() { NavigationTarget.Instance };
+
+        _target = FloorManager.Instance.GetNextDestination(player.position);
+        Debug.Log(_target);
         // navMeshSurface = _navigationBase.GetComponentInChildren<NavMeshSurface>();
 
         // _navMeshSurface.BuildNavMesh();

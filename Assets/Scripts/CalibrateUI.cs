@@ -74,8 +74,9 @@ public class CalibrateUI : MonoBehaviour
         // _navigationTargets.Clear();
         // _navigationTargets = new List<NavigationTarget>() { NavigationTarget.Instance };
 
-        _target = FloorManager.Instance.GetNextDestination(player.position);
-        Debug.Log(_target);
+        // _target = FloorManager.Instance.GetNextDestination(player.position);
+        _target = NavigationTarget.Instance.transform;
+        // Debug.Log(_target);
         // navMeshSurface = _navigationBase.GetComponentInChildren<NavMeshSurface>();
 
         // _navMeshSurface.BuildNavMesh();

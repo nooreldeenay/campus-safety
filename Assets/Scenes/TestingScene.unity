@@ -314,6 +314,7 @@ MonoBehaviour:
   pathYOffset: 1
   calibrateButton: {fileID: 836129673}
   guidanceLine: {fileID: 0}
+  _target: {fileID: 7913934061258847332}
 --- !u!4 &147761278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 845346147632491755, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
@@ -3921,18 +3922,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8868021806505999822, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
         type: 3}
-      propertyPath: m_CameraMovementBounds.m_Extent.x
-      value: 57.43
-      objectReference: {fileID: 0}
-    - target: {fileID: -8868021806505999822, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
-        type: 3}
-      propertyPath: m_CameraMovementBounds.m_Extent.y
-      value: 6.7
-      objectReference: {fileID: 0}
-    - target: {fileID: -8868021806505999822, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
-        type: 3}
-      propertyPath: m_CameraMovementBounds.m_Extent.z
-      value: 56.1
+      propertyPath: m_CameraMovementBounds.m_Center.z
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 2383162670032853055, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
         type: 3}
@@ -3988,21 +3979,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor2New
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387791402568763797, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590452909575367452, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 15578e3ff4d1e8744a26c3d562df295f, type: 2}
-    - target: {fileID: 8689633698371994690, guid: 656c69f6f7e6de04e88dde9a3fcb29e5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2397,7 +2397,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0, w: 1}
   m_CameraMovementBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 51.3, y: 10, z: 51.1}
+    m_Extent: {x: 59.7, y: 11.1, z: 57.1}
   m_DefaultViewPose:
     position: {x: 0, y: 1.5, z: -1}
     rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4738,7 +4738,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3462595747893007961}
+  - {fileID: 6414887022251499413}
   m_Father: {fileID: 2383162670032853055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7404671272165510407
@@ -4771,7 +4771,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e8bff1e4fbeeea541b5971404f31d40a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 1cd9573a02f17db4ba18946f8170ea95, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &6999930080619817689
 GameObject:
@@ -5670,7 +5670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 15578e3ff4d1e8744a26c3d562df295f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5944,7 +5944,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &4001207483645145522
+--- !u!1001 &6813093836150880382
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6012,9 +6012,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65fa2f751896c784c8d58417008d20b1, type: 3}
---- !u!4 &3462595747893007961 stripped
+--- !u!4 &6414887022251499413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65fa2f751896c784c8d58417008d20b1,
     type: 3}
-  m_PrefabInstance: {fileID: 4001207483645145522}
+  m_PrefabInstance: {fileID: 6813093836150880382}
   m_PrefabAsset: {fileID: 0}

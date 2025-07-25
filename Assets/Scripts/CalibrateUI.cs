@@ -19,7 +19,7 @@ public class CalibrateUI : MonoBehaviour
     [SerializeField] private GuidanceLine.GuidanceLine guidanceLine;
 
     // private List<NavigationTarget> _navigationTargets = new();
-    private Transform _target;
+    [SerializeField] private Transform _target;
     private GameObject _navigationBase;
 
     private NavMeshPath _navMeshPath;
@@ -38,7 +38,6 @@ public class CalibrateUI : MonoBehaviour
         // if (_navigationTargets.Count > 0)
         if (_target != null)
         {
-            Debug.Log(_target.position);
             // _navMeshSurface.BuildNavMesh();
             NavMesh.CalculatePath(player.position, _target.position, NavMesh.AllAreas,
                 _navMeshPath);
@@ -75,8 +74,8 @@ public class CalibrateUI : MonoBehaviour
         // _navigationTargets = new List<NavigationTarget>() { NavigationTarget.Instance };
 
         // _target = FloorManager.Instance.GetNextDestination(player.position);
-        _target = NavigationTarget.Instance.transform;
-        // Debug.Log(_target);
+        // _target = NavigationTarget.Instance.transform;
+        Debug.Log(_target.name);
         // navMeshSurface = _navigationBase.GetComponentInChildren<NavMeshSurface>();
 
         // _navMeshSurface.BuildNavMesh();

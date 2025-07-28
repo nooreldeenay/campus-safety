@@ -10,6 +10,7 @@ public class StartMenuUI : MonoBehaviour
 
     [SerializeField] private Transform floorSelectionButtons;
 
+    [SerializeField] private Button startButton;
     [SerializeField] private Button groundFloorButton;
     [SerializeField] private Button firstFloorButton;
     [SerializeField] private Button secondFloorButton;
@@ -36,6 +37,9 @@ public class StartMenuUI : MonoBehaviour
         SwitchToMainView();
 
         sectionsLabelCanvas.gameObject.SetActive(false);
+        startButton.gameObject.SetActive(false);
+
+        startButton.onClick.AddListener(() => { SceneLoader.Instance.LoadScene(Scene.MainScene); });
 
         groundFloorButton.onClick.AddListener(() =>
         {
@@ -75,25 +79,29 @@ public class StartMenuUI : MonoBehaviour
         c5SectionButton.onClick.AddListener(() =>
         {
             PlayerData.Instance.selectedSection = Section.C5;
-            SceneLoader.Instance.LoadScene(Scene.MainScene);
+            OnSectionSelected();
+            // SceneLoader.Instance.LoadScene(Scene.MainScene);
         });
 
         c6SectionButton.onClick.AddListener(() =>
         {
             PlayerData.Instance.selectedSection = Section.C6;
-            SceneLoader.Instance.LoadScene(Scene.MainScene);
+            OnSectionSelected();
+            // SceneLoader.Instance.LoadScene(Scene.MainScene);
         });
 
         c2SectionButton.onClick.AddListener(() =>
         {
             PlayerData.Instance.selectedSection = Section.C2;
-            SceneLoader.Instance.LoadScene(Scene.MainScene);
+            OnSectionSelected();
+            // SceneLoader.Instance.LoadScene(Scene.MainScene);
         });
 
         c3SectionButton.onClick.AddListener(() =>
         {
             PlayerData.Instance.selectedSection = Section.C3;
-            SceneLoader.Instance.LoadScene(Scene.MainScene);
+            OnSectionSelected();
+            // SceneLoader.Instance.LoadScene(Scene.MainScene);
         });
     }
 
@@ -122,6 +130,15 @@ public class StartMenuUI : MonoBehaviour
         {
             c5SectionButton.gameObject.SetActive(false);
         }
+    }
+
+    private void OnSectionSelected()
+    {
+        instructionsText.SetText(
+            $"Head to {PlayerData.Instance.selectedSection} and position and orient yourself according to the shown circle and arrow, then press start"
+        );
+        
+        startButton.gameObject.SetActive(true);
     }
 
     private void SwitchToTopView()

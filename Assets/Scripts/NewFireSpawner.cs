@@ -8,8 +8,8 @@ public class NewFireSpawner : MonoBehaviour
     [SerializeField] private GameObject firePrefab;
     [SerializeField] private Collider fireArea1;
     [SerializeField] private NavMeshSurface surface;
-
-    private void Start()
+    
+    public void SpawnFire()
     {
         float extentZ = fireArea1.bounds.extents.z;
         float extentX = fireArea1.bounds.extents.x;

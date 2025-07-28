@@ -15,7 +15,7 @@ MonoBehaviour:
   m_EnvironmentPrefabPaths:
   - Assets/Prefabs/dummyenv.prefab
   - Assets/Prefabs/Floor2.prefab
-  - Assets/Prefabs/Floor2New.prefab
+  - Assets/Prefabs/full_building.prefab
   - Assets/Prefabs/TrackedImage.prefab
   - Packages/com.unity.xr.arfoundation/Assets/Prefabs/DefaultSimulationEnvironment.prefab
   m_FallbackAtEndOfList: 1

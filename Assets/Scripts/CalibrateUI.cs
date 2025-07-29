@@ -36,10 +36,10 @@ public class CalibrateUI : MonoBehaviour
     private void Update()
     {
         // if (_navigationTargets.Count > 0)
-        if (_target != null)
+        if (_target)
         {
             // _navMeshSurface.BuildNavMesh();
-            NavMesh.CalculatePath(player.position, _target.position, NavMesh.AllAreas,
+            NavMesh.CalculatePath(player.position + Vector3.down * 0.7f, _target.position, NavMesh.AllAreas,
                 _navMeshPath);
 
             if (_navMeshPath.status == NavMeshPathStatus.PathComplete)

@@ -4,31 +4,27 @@ using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class CalibrateUI : MonoBehaviour
 {
-    [SerializeField] private GameObject trackedImagePrefab;
+    public static CalibrateUI Instance;
+    
     [SerializeField] private Transform player;
-    [SerializeField] private Transform xrSessionOrigin;
-    [SerializeField] private Transform calibrateTransform;
+    [SerializeField] private Transform target;
     [SerializeField] private NavMeshSurface navMeshSurface;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private float pathYOffset = 1;
-    [SerializeField] Button calibrateButton;
-    [SerializeField] private GuidanceLine.GuidanceLine guidanceLine;
+    [SerializeField] private Transform[] exits;
 
-    // private List<NavigationTarget> _navigationTargets = new();
-    [SerializeField] private Transform _target;
-    private GameObject _navigationBase;
-
-    private NavMeshPath _navMeshPath;
+    private NavMeshPath navMeshPath;
 
     private void Awake()
     {
-        calibrateButton.onClick.AddListener(OnCalibrateClicked);
-
-        _navMeshPath = new NavMeshPath();
+        Instance = this;
+        
+        navMeshPath = new NavMeshPath();
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
@@ -36,15 +32,15 @@ public class CalibrateUI : MonoBehaviour
     private void Update()
     {
         // if (_navigationTargets.Count > 0)
-        if (_target)
+        if (target)
         {
             // _navMeshSurface.BuildNavMesh();
-            NavMesh.CalculatePath(player.position + Vector3.down * 0.7f, _target.position, NavMesh.AllAreas,
-                _navMeshPath);
+            NavMesh.CalculatePath(player.position + Vector3.down * 0.7f, target.position, NavMesh.AllAreas,
+                navMeshPath);
 
-            if (_navMeshPath.status == NavMeshPathStatus.PathComplete)
+            if (navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
-                Vector3[] waypoints = _navMeshPath.corners;
+                Vector3[] waypoints = navMeshPath.corners;
 
                 for (int i = 0; i < waypoints.Length; i++)
                 {
@@ -52,7 +48,7 @@ public class CalibrateUI : MonoBehaviour
                 }
 
 
-                lineRenderer.positionCount = _navMeshPath.corners.Length;
+                lineRenderer.positionCount = navMeshPath.corners.Length;
                 lineRenderer.SetPositions(waypoints);
             }
             else
@@ -62,22 +58,19 @@ public class CalibrateUI : MonoBehaviour
         }
     }
 
-    private void OnCalibrateClicked()
+    public void RePickClosestExit()
     {
-        // xrSessionOrigin.SetPositionAndRotation(
-        //     calibrateTransform.position,
-        //     Quaternion.Euler(0, calibrateTransform.rotation.eulerAngles.y, 0));
+        Transform nearest = exits[0];
 
-        // navigationBase.SetActive(true);
+        foreach (var exit in exits)
+        {
+            if (Vector3.SqrMagnitude(player.position - exit.position) <
+                Vector3.SqrMagnitude(player.position - nearest.position))
+            {
+                nearest = exit;
+            }
+        }
 
-        // _navigationTargets.Clear();
-        // _navigationTargets = new List<NavigationTarget>() { NavigationTarget.Instance };
-
-        // _target = FloorManager.Instance.GetNextDestination(player.position);
-        // _target = NavigationTarget.Instance.transform;
-        Debug.Log(_target.name);
-        // navMeshSurface = _navigationBase.GetComponentInChildren<NavMeshSurface>();
-
-        // _navMeshSurface.BuildNavMesh();
+        target.position = nearest.position;
     }
 }

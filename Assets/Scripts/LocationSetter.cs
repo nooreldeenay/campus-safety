@@ -54,16 +54,12 @@ public class LocationSetter : MonoBehaviour
         {
             case Section.C5:
                 return c5First;
-                break;
             case Section.C6:
                 return c6First;
-                break;
             case Section.C2:
                 return c2First;
-                break;
             case Section.C3:
                 return c3First;
-                break;
         }
         
         return Vector3.zero;
@@ -75,16 +71,12 @@ public class LocationSetter : MonoBehaviour
         {
             case Section.C5:
                 return c5Second;
-                break;
             case Section.C6:
                 return c6Second;
-                break;
             case Section.C2:
                 return c2Second;
-                break;
             case Section.C3:
                 return c3Second;
-                break;
         }
         
         return Vector3.zero;

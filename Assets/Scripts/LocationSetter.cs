@@ -5,7 +5,7 @@ public class LocationSetter : MonoBehaviour
 {
     [SerializeField] private Transform buildingModel;
     [SerializeField] private NewFireSpawner newFireSpawner;
-    
+
     [SerializeField] private Vector3 c5First;
     [SerializeField] private Vector3 c5Second;
     [SerializeField] private Vector3 c5Third;
@@ -44,7 +44,7 @@ public class LocationSetter : MonoBehaviour
         {
             buildingModel.Rotate(Vector3.up, 90f);
         }
-        
+
         newFireSpawner.SpawnFire();
     }
 
@@ -61,10 +61,10 @@ public class LocationSetter : MonoBehaviour
             case Section.C3:
                 return c3First;
         }
-        
+
         return Vector3.zero;
     }
-    
+
     private Vector3 StartingLocationFromSecondFloorSection()
     {
         switch (PlayerData.Instance.selectedSection)
@@ -78,10 +78,10 @@ public class LocationSetter : MonoBehaviour
             case Section.C3:
                 return c3Second;
         }
-        
+
         return Vector3.zero;
     }
-    
+
     private Vector3 StartingLocationFromThirdFloorSection()
     {
         switch (PlayerData.Instance.selectedSection)
@@ -95,7 +95,7 @@ public class LocationSetter : MonoBehaviour
             case Section.C3:
                 return c3Third;
         }
-        
+
         return Vector3.zero;
     }
 }

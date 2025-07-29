@@ -28,15 +28,19 @@ public class NewLocationSetter : MonoBehaviour
         {
             case Section.C5:
                 xrOrigin.position = c5Location.position;
+                xrOrigin.rotation = c5Location.rotation;
                 break;
             case Section.C6:
                 xrOrigin.position = c6Location.position;
+                xrOrigin.rotation = c5Location.rotation;
                 break;
             case Section.C2:
                 xrOrigin.position = c2Location.position;
+                xrOrigin.rotation = c5Location.rotation;
                 break;
             case Section.C3:
                 xrOrigin.position = c3Location.position;
+                xrOrigin.rotation = c5Location.rotation;
                 break;
         }
 

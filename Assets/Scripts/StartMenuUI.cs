@@ -19,6 +19,10 @@ public class StartMenuUI : MonoBehaviour
     [SerializeField] private Transform[] floors;
 
     [SerializeField] private CinemachineCamera topViewCamera;
+    [SerializeField] private CinemachineCamera c5TopViewCamera;
+    [SerializeField] private CinemachineCamera c6TopViewCamera;
+    [SerializeField] private CinemachineCamera c3TopViewCamera;
+    [SerializeField] private CinemachineCamera c2TopViewCamera;
     [SerializeField] private CinemachineCamera mainViewCamera;
 
     [SerializeField] private ObjectRotator floorModel;
@@ -31,6 +35,8 @@ public class StartMenuUI : MonoBehaviour
     [SerializeField] private Button c3SectionButton;
 
     private bool _groundFloorChosen;
+
+    private int currentPriority = 1;
 
     private void Awake()
     {
@@ -135,21 +141,57 @@ public class StartMenuUI : MonoBehaviour
     private void OnSectionSelected()
     {
         instructionsText.SetText(
-            $"Head to {PlayerData.Instance.selectedSection} and position and orient yourself according to the shown circle and arrow, then press start"
+            $"Head to {PlayerData.Instance.selectedSection} and stand on the shown circle and look in the direction of the arrow, then press start"
         );
-        
+
+        switch (PlayerData.Instance.selectedSection)
+        {
+            case Section.C5:
+                SwitchToC5TopView();
+                break;
+            case Section.C6:
+                SwitchToC6TopView();
+                break;
+            case Section.C2:
+                SwitchToC2TopView();
+                break;
+            case Section.C3:
+                SwitchToC3TopView();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
         startButton.gameObject.SetActive(true);
     }
-
+    
+    private void SwitchToC5TopView()
+    {
+        c5TopViewCamera.Priority = currentPriority++;
+    }
+    
+    private void SwitchToC2TopView()
+    {
+        c2TopViewCamera.Priority = currentPriority++;
+    }
+    
+    private void SwitchToC3TopView()
+    {
+        c3TopViewCamera.Priority = currentPriority++;
+    }
+    
+    private void SwitchToC6TopView()
+    {
+        c6TopViewCamera.Priority = currentPriority++;
+    }
+    
     private void SwitchToTopView()
     {
-        mainViewCamera.Priority = 0;
-        topViewCamera.Priority = 1;
+        topViewCamera.Priority = currentPriority++;
     }
 
     private void SwitchToMainView()
     {
-        mainViewCamera.Priority = 1;
-        topViewCamera.Priority = 0;
+        mainViewCamera.Priority = currentPriority++;
     }
 }

@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
+    
     [SerializeField] private TextMeshProUGUI timerText;
     
-    private float _elapsedTime;
+    private float elapsedTime;
+    private bool timerActive = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
+        if (!timerActive) return;
         
-        timerText.text = _elapsedTime.ToString("0.00");
+        elapsedTime += Time.deltaTime;
+        
+        timerText.text = elapsedTime.ToString("0.00");
+    }
+
+    public void StopTimer()
+    {
+        timerActive = false;
     }
 }

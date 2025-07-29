@@ -96,16 +96,12 @@ public class LocationSetter : MonoBehaviour
         {
             case Section.C5:
                 return c5Third;
-                break;
             case Section.C6:
                 return c6Third;
-                break;
             case Section.C2:
                 return c2Third;
-                break;
             case Section.C3:
                 return c3Third;
-                break;
         }
         
         return Vector3.zero;

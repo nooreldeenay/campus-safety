@@ -15,9 +15,13 @@ C-building of the GUC campus in case of an emergency - in this case a fire.
 - This app was built for android, specifically tested on a MI Note 10 Lite. The tested device lacks features such as depth
 detection.
 
-## Problems Faced
+## Limitations
 The device tracking relies on SLAM (Simultaneous Localization and Mapping), which uses distinct features and high contrast
-objects captured by the device's camera to correctly track the user. Unfortunately this technology introduces slight error,
-and this error accumulates over long distances into a noticeable drag. The ability to recalibrate your position constantly
-using QR codes embedded throughout the building would be a possible solution to get rid of this error, however this was
+objects captured by the device's camera to correctly track the user.
+
+Unfortunately this technology introduces slight error,and this error accumulates over long distances into a noticeable drag.
+
+The ability to recalibrate your position constantly using QR codes embedded throughout the building would be a possible solution to get rid of this error, however this was
 not possible in the time constraint given to this project.
+
+Another limitation was occluding the navigation line and fires using real world data of the walls and floors. The package and device used didn't support this functionality.
